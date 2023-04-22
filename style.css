@@ -1,0 +1,70 @@
+body {
+    background: #E5E5E5;
+}
+
+#logo {
+    padding: 20px;
+    width: 10%;
+    height: 10%;
+    /* background: #0a38716f; */
+}
+
+#myTextarea {
+    border: #0A3871 1px solid;
+}
+
+.btn {
+    width: 240px;
+}
+
+#encriptar {
+    background: #0A3871;
+    color: #D8DFE8;
+}
+
+#desencriptar {
+    background: #D8DFE8;
+    color: #0A3871;
+    border: #0A3871 1px solid;
+}
+
+.card-body {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+}
+
+#copy-button {
+    background-color: transparent;
+    border: none;
+    color: #0b6db3;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 3;
+    transform: translateX(10px);
+}
+
+#copy-button:hover {
+    color: #0069d9;
+}
+
+#copy-button:active {
+    color: #0051a2;
+}
+
+#copy-button:focus {
+    outline: none;
+}
+
+#copy-button svg {
+    color: #0b6db3;
+    margin-right: 5px;
+}
+
+#copy-button.copied {
+    background-color: #cfe2f3;
+}
+
+#copy-button.copied svg {
+    color: #0069d9;
+}

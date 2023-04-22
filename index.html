@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Encriptador</title>
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- Contenedor principal -->
+    <div class="container-fluid mt-2">
+        <div class="row">
+            <!-- Logo -->
+            <div id="logo">
+                <img src="./public/Logo.png" alt="Logo">
+            </div>
+            <!-- Columna del textarea y los botones -->
+            <div class="col-md-5 mx-auto">
+                <div class="form-floating">
+                    <textarea class="form-control rounded-4" placeholder="Leave a comment here" id="myTextarea"
+                        onclick="addLineBreak()" style="height: 500px;"></textarea>
+                    <label for="floatingTextarea" style="color: #0A3871; font-size: 150%;">
+                        Ingrese el texto aqui <svg xmlns="http://www.w3.org/2000/svg"
+                            class="icon icon-tabler icon-tabler-brand-among-us" width="24" height="24"
+                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M10.646 12.774c-1.939 .396 -4.467 .317 -6.234 -.601c-2.454 -1.263 -1.537 -4.66 1.423 -4.982c2.254 -.224 3.814 -.354 5.65 .214c.835 .256 1.93 .569 1.355 3.281c-.191 1.067 -1.07 1.904 -2.194 2.088z">
+                            </path>
+                            <path
+                                d="M5.84 7.132c.083 -.564 .214 -1.12 .392 -1.661c.456 -.936 1.095 -2.068 3.985 -2.456a22.464 22.464 0 0 1 2.867 .08c1.776 .14 2.643 1.234 3.287 3.368c.339 1.157 .46 2.342 .629 3.537v11l-12.704 -.019c-.552 -2.386 -.262 -5.894 .204 -8.481">
+                            </path>
+                            <path
+                                d="M17 10c.991 .163 2.105 .383 3.069 .67c.255 .13 .52 .275 .534 .505c.264 3.434 .57 7.448 .278 9.825h-3.881">
+                            </path>
+                        </svg>
+                    </label>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-circle-filled"
+                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                        d="M12 2c5.523 0 10 4.477 10 10a10 10 0 0 1 -19.995 .324l-.005 -.324l.004 -.28c.148 -5.393 4.566 -9.72 9.996 -9.72zm.01 13l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -8a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z"
+                        stroke-width="0" fill="currentColor"></path>
+                </svg><span>Solo letras minúsculas y sin acentos</span>
+                <div class="text-center">
+                    <button class="btn rounded-4 px-4 py-3" id="encriptar" onclick="encriptar()">
+                        Encriptar <svg xmlns="http://www.w3.org/2000/svg"
+                            class="icon icon-tabler icon-tabler-lock-access-off" width="27" height="27"
+                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M4 8v-2c0 -.554 .225 -1.055 .588 -1.417"></path>
+                            <path d="M4 16v2a2 2 0 0 0 2 2h2"></path>
+                            <path d="M16 4h2a2 2 0 0 1 2 2v2"></path>
+                            <path d="M16 20h2c.55 0 1.05 -.222 1.41 -.582"></path>
+                            <path
+                                d="M15 11a1 1 0 0 1 1 1m-.29 3.704a1 1 0 0 1 -.71 .296h-6a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h2">
+                            </path>
+                            <path d="M10 11v-1m1.182 -2.826a2 2 0 0 1 2.818 1.826v1"></path>
+                            <path d="M3 3l18 18"></path>
+                        </svg>
+                    </button>
+                    <button class="btn rounded-4 px-4 py-3" id="desencriptar" onclick="desencriptar()">
+                        Desencriptar <svg xmlns="http://www.w3.org/2000/svg"
+                            class="icon icon-tabler icon-tabler-lock-access" width="27" height="27" viewBox="0 0 24 24"
+                            stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M4 8v-2a2 2 0 0 1 2 -2h2"></path>
+                            <path d="M4 16v2a2 2 0 0 0 2 2h2"></path>
+                            <path d="M16 4h2a2 2 0 0 1 2 2v2"></path>
+                            <path d="M16 20h2a2 2 0 0 0 2 -2v-2"></path>
+                            <path d="M8 11m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v3a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z">
+                            </path>
+                            <path d="M10 11v-2a2 2 0 1 1 4 0v2"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Columna del card con la imagen y el texto -->
+            <div class="col-md-3">
+                <div class="card align-items-center text-center rounded-5" style="height: 38rem;">
+                    <button id="copy-button" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="18"
+                            height="18" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z">
+                            </path>
+                            <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+                        </svg>
+                        Copiar
+                    </button>
+
+                    <div id="card-container" class="card-body d-flex flex-column justify-content-center">
+                        <b id="encripted-text" style="color: #0A3871;"></b>
+                        <b id="decrypted-text" style="color: #0A3871;"></b>
+                        <img class="card-img-top mx-auto" src="./public/Muñeco.png" style="width: 80%;">
+                        <div>
+                            <h5 class="card-title mt-4">Título de la imagen</h5>
+                            <p class="card-text">Descripción de la imagen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOOTSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <!-- JS -->
+    <script src="./index.js"></script>
+</body>
+
+</html>
