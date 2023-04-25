@@ -1,4 +1,4 @@
-# Encriptador de texto JavaScript
+# Encriptador de texto
 
 <img src="https://github.com/FelipeV03/FelipeV03/blob/main/readmeImgs/encriptador1.png"/>
 
